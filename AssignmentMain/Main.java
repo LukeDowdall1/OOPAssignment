@@ -10,6 +10,7 @@ import java.awt.event.MouseListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import java.awt.Dimension;
@@ -78,13 +79,20 @@ public class Main extends JFrame implements ActionListener, MouseListener
 		TextField1.setBackground(new Color(255, 255, 255));
 		centrePanel.add(TextField1);
 		
-		TextField1.setToolTipText("Enter name here:");
 		TextField1.addActionListener(this);
 		
 		
 		setVisible(true);
 	}
 
+	
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == button1)
+		{
+			String word = TextField1.getText();
+			JOptionPane.showMessageDialog(this, "Word entered: " + word);
+		}
+	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
@@ -116,13 +124,6 @@ public class Main extends JFrame implements ActionListener, MouseListener
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
