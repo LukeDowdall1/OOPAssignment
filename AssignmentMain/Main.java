@@ -6,11 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.util.Scanner;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -29,7 +24,6 @@ public class Main extends JFrame implements ActionListener, MouseListener
 	JButton button1;
 	JPanel centrePanel, southPanel, northPanel;
 	JTextField TextField1;
-	Scanner scan;
 	
 	
 	public Main(String myTitle) 
@@ -93,52 +87,16 @@ public class Main extends JFrame implements ActionListener, MouseListener
 
 	
 	public void actionPerformed(ActionEvent e) {
-		String path = "C:\\Users\\Luke Dowdall\\eclipse-workspace\\Assignment\\";
 		if (e.getSource() == button1)
 		{
-			//String word = TextField1.getText();
-			//showMessageDialog(this, "Word entered: " + word);
-			try {
-				 File folder = new File(path);
-					 File[] listOfFiles = folder.listFiles();
-					 
-					 //test if there is files in list
-					 if (listOfFiles.length > 0) {
-						 
-						//loop over length of list 
-					   for (int i = 0; i < listOfFiles.length; i++) {
-						  //if document is a file then 
-					      if (listOfFiles[i].isFile()) {
-					    	  
-					    	 //read the file
-					         scan = new Scanner(new BufferedReader(new FileReader(path + listOfFiles[i].getName())));
-					         
-					         //while the file has a next line
-					         while (scan.hasNext()){
-					        	//using a word variable to check each word 
-					            String word = scan.next();
-					            //if word is equal to what you typed then set result field to name of file you are in
-					            if(word.equals(TextField1.getText())){
-					            	results.setText(listOfFiles[i].getName());
-					            }
-					          }//end while
-					      }//end if
-					  }//end for
-					}//end 1st if
-					            
-					} catch (FileNotFoundException e) {
-						e.printStackTrace();
-					}
-
-				}
-			
-			
+			String word = TextField1.getText();
+			JOptionPane.showMessageDialog(this, "Word entered: " + word);
 		}
 	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		TextField1.setText("");
+		// TODO Auto-generated method stub
 		
 	}
 
