@@ -1,3 +1,15 @@
+/*
+ * Luke Dowdall C18375931 
+ * Java assignment Semester 2 
+ * 
+ * Program to search through various files and match the word 
+ * entered and calculate the strength of every file compared 
+ * to the word entered.
+ * 
+ */
+
+
+
 package AssignmentMain;
 
 import java.awt.BorderLayout;
@@ -147,10 +159,12 @@ public class Main extends JFrame implements ActionListener, MouseListener
 				File folder = new File(path);
 				File[] FileList = folder.listFiles();
 				 
+				//Checking if there are any files to look through
 				if (FileList.length > 0) {
 					 
 					for (int i = 0; i < 7; i++) {
 					   
+						//if statement checking if they are actually files.
 						if (FileList[i].isFile()) {
 				    	  
 							scan = new Scanner(new BufferedReader(new FileReader(path + FileList[i].getName())));
@@ -161,6 +175,8 @@ public class Main extends JFrame implements ActionListener, MouseListener
 								if(word.equals(TextField1.getText())){
 									str[i] ++;
 									if(j == 1) {
+										
+										//Appending each file that has a match into the results table
 										lists.append(FileList[i].getName());
 										lists.append(line);
 										j++;
@@ -169,7 +185,8 @@ public class Main extends JFrame implements ActionListener, MouseListener
 							}
 						}
 						j = 1;
-							
+						
+						//Calculating the total amount of words so that it may be used to calculated the strength
 						strtotal = strtotal + str[i];
 					}
 					//had to use a  for statement as the first one would not work  properly
